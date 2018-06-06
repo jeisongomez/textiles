@@ -18,7 +18,7 @@
                 </li>
                 <li *ngIf="ventas == '1'" class="NavLateralDivider"></li>
                 <li *ngIf="ventas == '1'">
-                    <a class="NavLateral-DropDown  waves-effect waves-light">
+                    <a [routerLink]="['/ventas']" class="NavLateral-DropDown  waves-effect waves-light">
                         <i class="zmdi zmdi-money-box zmdi-hc-fw"></i>
                         Ventas
                     </a>
@@ -26,14 +26,14 @@
                 <li *ngIf="compras == '1'" class="NavLateralDivider"></li>
                 <li *ngIf="compras == '1'">
                     <a class="NavLateral-DropDown  waves-effect waves-light">
-                        <i class="zmdi zmdi-accounts zmdi-hc-fw"></i>
+                        <i class="zmdi zmdi-shopping-cart zmdi-hc-fw"></i>
                         Compras
                     </a>
                 </li>
                 <li *ngIf="reportes == '1'" class="NavLateralDivider"></li>
                 <li *ngIf="reportes == '1'">
                     <a class="NavLateral-DropDown  waves-effect waves-light">
-                        <i class="zmdi zmdi-pin-drop zmdi-hc-fw"></i>
+                        <i class="zmdi zmdi-collection-text zmdi-hc-fw"></i>
                         <i class="zmdi zmdi-chevron-down NavLateral-CaretDown"></i>
                         Reportes
                     </a>

@@ -12,7 +12,6 @@ import { User } from '../../modelos/user';
 export class HomeComponent implements OnInit {
 
   public validar;
-  public logueado;
 
 
   constructor(
@@ -27,7 +26,6 @@ export class HomeComponent implements OnInit {
     this.refrescar();
     console.log(this.validar);
     //console.log(JSON.parse(localStorage.getItem('usuario')));
-    this.obtenerUsusario();
   }
 
   refrescar() {
@@ -35,11 +33,6 @@ export class HomeComponent implements OnInit {
       localStorage.setItem('contador', '1');
       location.reload();
     }
-  }
-
-  obtenerUsusario() {
-    this.logueado = JSON.parse(localStorage.getItem('usuario'));
-    console.log(this.logueado);
   }
 
 }

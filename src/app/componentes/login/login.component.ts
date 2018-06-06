@@ -15,9 +15,7 @@ export class LoginComponent implements OnInit {
   public identity;
   public identity2;
   public respuesta;
-  public teclado;
   public datosUsuario;
-  public prueba;
 
   constructor(
     private _route: ActivatedRoute,
@@ -30,8 +28,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     console.log('componente login ejecutado');
   }
-
-
 
   onSubmit() {
     this._loginService.signup(this.usuario).subscribe(

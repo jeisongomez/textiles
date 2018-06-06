@@ -13,6 +13,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { TecladoComponent } from './componentes/teclado/teclado.component';
 import { VentasComponent } from './componentes/ventas/ventas.component';
 import { ComprasComponent } from './componentes/compras/compras.component';
+import { ClientesComponent } from './componentes/clientes/clientes.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ComprasComponent } from './componentes/compras/compras.component';
     ErrorComponent,
     TecladoComponent,
     VentasComponent,
-    ComprasComponent
+    ComprasComponent,
+    ClientesComponent
   ],
   imports: [
     BrowserModule,
