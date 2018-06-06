@@ -1,0 +1,60 @@
+<section class="NavLateral full-width" style="position: fixed">
+    <div class="NavLateral-FontMenu full-width ShowHideMenu"></div>
+    <div class="NavLateral-content full-width">
+        <header class="NavLateral-title full-width center-align">
+            Textiles.exe
+            <i class="zmdi zmdi-close NavLateral-title-btn ShowHideMenu"></i>
+        </header>
+        <figure class="full-width NavLateral-logo">
+            <img src="../../../assets/assets/img/univalle.jpg" alt="material-logo" class="responsive-img center-box">
+        </figure>
+        <div class="NavLateral-Nav">
+            <ul class="full-width">
+                <li>
+                    <a [routerLink]="['/home']" class="waves-effect waves-light">
+                        <i class="zmdi zmdi-home zmdi-hc-fw"></i>
+                        Página principal
+                    </a>
+                </li>
+                <li *ngIf="ventas == '1'" class="NavLateralDivider"></li>
+                <li *ngIf="ventas == '1'">
+                    <a class="NavLateral-DropDown  waves-effect waves-light">
+                        <i class="zmdi zmdi-money-box zmdi-hc-fw"></i>
+                        Ventas
+                    </a>
+                </li>
+                <li *ngIf="compras == '1'" class="NavLateralDivider"></li>
+                <li *ngIf="compras == '1'">
+                    <a class="NavLateral-DropDown  waves-effect waves-light">
+                        <i class="zmdi zmdi-accounts zmdi-hc-fw"></i>
+                        Compras
+                    </a>
+                </li>
+                <li *ngIf="reportes == '1'" class="NavLateralDivider"></li>
+                <li *ngIf="reportes == '1'">
+                    <a class="NavLateral-DropDown  waves-effect waves-light">
+                        <i class="zmdi zmdi-pin-drop zmdi-hc-fw"></i>
+                        <i class="zmdi zmdi-chevron-down NavLateral-CaretDown"></i>
+                        Reportes
+                    </a>
+                    <ul class="full-width">
+                        <li>
+                            <a class="waves-effect waves-light"> Consultar Dinero Ganado </a>
+                        </li>
+                        <li class="NavLateralDivider"></li>
+                        <li>
+                            <a class="waves-effect waves-light"> Consultar Top 10 Vendidos </a>
+                        </li>
+                        <li class="NavLateralDivider"></li>
+                        <li>
+                            <a class="waves-effect waves-light"> Consultar Top 10 Utilidad</a>
+                        </li>
+                        <li>
+                            <a class="waves-effect waves-light"> Consultar Producto menos vendido</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
