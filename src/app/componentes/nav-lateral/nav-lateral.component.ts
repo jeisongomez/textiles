@@ -15,6 +15,7 @@ export class NavLateralComponent implements OnInit {
   public ventas;
   public compras;
   public reportes;
+  public crearUser;
 
   constructor(
     private _route: ActivatedRoute,
@@ -36,6 +37,7 @@ export class NavLateralComponent implements OnInit {
     this.ventas = this.logueado.ventas;
     this.compras = this.logueado.compras;
     this.reportes = this.logueado.reportes;
+    this.crearUser = this.logueado.tipo_usuario;
   };
 
 }

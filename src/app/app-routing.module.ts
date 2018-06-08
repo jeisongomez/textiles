@@ -8,6 +8,7 @@ import { ErrorComponent } from './componentes/error/error.component';
 import { NavSuperiorComponent } from './componentes/nav-superior/nav-superior.component';
 import { VentasComponent } from './componentes/ventas/ventas.component';
 import { ClientesComponent } from './componentes/clientes/clientes.component';
+import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'ventas', component: VentasComponent },
   { path: 'addCliente', component: ClientesComponent },
+  { path: 'addUsuario', component: UsuariosComponent },
   { path: '**', component: ErrorComponent }
 ];
 

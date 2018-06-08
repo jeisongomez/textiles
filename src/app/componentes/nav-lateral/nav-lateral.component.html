@@ -16,6 +16,13 @@
                         Página principal
                     </a>
                 </li>
+                <li *ngIf="crearUser == 'administrador'" class="NavLateralDivider"></li>
+                <li *ngIf="crearUser == 'administrador'">
+                    <a [routerLink]="['/addUsuario']" class="NavLateral-DropDown  waves-effect waves-light">
+                        <i class="zmdi zmdi-account-circle zmdi-hc-fw"></i>
+                        Crear usuario
+                    </a>
+                </li>
                 <li *ngIf="ventas == '1'" class="NavLateralDivider"></li>
                 <li *ngIf="ventas == '1'">
                     <a [routerLink]="['/ventas']" class="NavLateral-DropDown  waves-effect waves-light">

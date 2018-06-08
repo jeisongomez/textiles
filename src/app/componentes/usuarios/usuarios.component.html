@@ -1,0 +1,138 @@
+<app-nav-lateral></app-nav-lateral>
+<section class="ContentPage full-width">
+  <app-nav-superior></app-nav-superior>
+  <div class="container">
+    <div class="row">
+      <h2 class="center-align">Ingresar datos del Usuario</h2>
+      <form #formUsuario="ngForm" (ngSubmit)="onSubmit()" class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="first_name3" type="text" #Identidad="ngModel" name="Identidad" class="validate" [(ngModel)]="usuario.num_identidad"
+              autocomplete="off" required pattern="[0-9]+">
+            <label for="first_name3">
+              Documento De Identidad &nbsp;
+              <span *ngIf="!Identidad.valid && Identidad.touched" style="color: rgb(211, 36, 43)"> EL DOCUMENTO DE IDENTIDAD NO ES CORRECTO </span>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="first_name4" type="text" #primernombre="ngModel" name="primernombre" class="validate" [(ngModel)]="usuario.nombre_pri"
+              autocomplete="off" required>
+            <label for="first_name4">
+              Primer Nombre &nbsp;
+              <span *ngIf="!primernombre.valid && primernombre.touched" style="color: rgb(211, 36, 43)"> EL CAMPO ES OBLIGATORIO </span>
+            </label>
+          </div>
+          <div class="input-field col s6">
+            <input id="last_name6" type="text" name="segundonombre" class="validate" [(ngModel)]="usuario.nombre_seg" autocomplete="off">
+            <label for="last_name6">Segundo Nombre</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="first_name5" type="text" #primerapellido="ngModel" name="primerapellido" class="validate" [(ngModel)]="usuario.apellido_pri"
+              autocomplete="off" required>
+            <label for="first_name5">
+              Primer Apellido
+              <span *ngIf="!primerapellido.valid && primerapellido.touched" style="color: rgb(211, 36, 43)"> EL CAMPO ES OBLIGATORIO </span>
+            </label>
+          </div>
+          <div class="input-field col s6">
+            <input id="last_name3" type="text" name="segundoapellido" class="validate" [(ngModel)]="usuario.apellido_seg" autocomplete="off">
+            <label for="last_name3">Segundo Apellido</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="first_name" type="text" #telofono="ngModel" name="telofono" class="validate" [(ngModel)]="usuario.telefono" autocomplete="off"
+              required pattern="[0-9]+">
+            <label for="first_name">
+              Telofono &nbsp;
+              <span *ngIf="!telofono.valid && telofono.touched" style="color: rgb(211, 36, 43)"> EL TELEFONO NO ES CORRECTO </span>
+            </label>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="email" type="email" #correo="ngModel" name="correo" class="validate" [(ngModel)]="usuario.correo" autocomplete="off"
+                required>
+              <label for="email">
+                Correo Electronico
+                <span *ngIf="!correo.valid && correo.touched" style="color: rgb(211, 36, 43)"> EL CAMPO NO ES CORRECTO </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea1" #direccion="ngModel" name="direccion" class="materialize-textarea" [(ngModel)]="usuario.direccion"
+              required></textarea>
+            <label for="textarea1">
+              Dirección
+              <span *ngIf="!direccion.valid && direccion.touched" style="color: rgb(211, 36, 43)"> EL CAMPO NO ES CORRECTO </span>
+            </label>
+          </div>
+        </div>
+        <div class="input-field col s12">
+          <input id="first_name9" type="text" #primerapellido0="ngModel" name="primerapellido0" class="validate" [(ngModel)]="usuario.tipo_usuario"
+            autocomplete="off" required>
+          <label for="first_name9">
+            Tipo de usuario
+            <span *ngIf="!primerapellido0.valid && primerapellido0.touched" style="color: rgb(211, 36, 43)"> EL CAMPO ES OBLIGATORIO </span>
+          </label>
+        </div>
+        <div class="row">
+          <div class="col s8">
+            <h5>
+              <strong>Roles del usuario</strong>
+            </h5>
+            <br>
+            <h6>
+              <strong>Ventas: {{ventas}} </strong>
+            </h6>
+            <h6>
+              <strong>Compras: {{compras}} </strong>
+            </h6>
+            <h6>
+              <strong>Reportes: {{reportes}} </strong>
+            </h6>
+          </div>
+          <div class="col s4">
+            <a (click)="rolventas()" style="width: 150px;" class="waves-effect waves-light btn-large">Ventas</a>
+            <br>
+            <a (click)="rolcompras()" style="width: 150px;" class="waves-effect waves-light btn-large">Compras</a>
+            <br>
+            <a (click)="rolreportes()" style="width: 150px;" class="waves-effect waves-light btn-large">Reportes</a>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="first_name2" type="text" #primernombre1="ngModel" name="primernombre1" class="validate" [(ngModel)]="usuario.usuario"
+              autocomplete="off" required>
+            <label for="first_name2">
+              Nombre de usuario &nbsp;
+              <span *ngIf="!primernombre1.valid && primernombre1.touched" style="color: rgb(211, 36, 43)"> EL CAMPO ES OBLIGATORIO </span>
+            </label>
+          </div>
+          <div class="input-field col s6">
+            <input id="first_name8" type="text" #primernombre2="ngModel" name="primernombre2" class="validate" [(ngModel)]="usuario.contrasena"
+              autocomplete="off" required>
+            <label for="first_name8">
+              Contraseña de usuario &nbsp;
+              <span *ngIf="!primernombre2.valid && primernombre2.touched" style="color: rgb(211, 36, 43)"> EL CAMPO ES OBLIGATORIO </span>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class=" input-field col s4"></div>
+          <div class="col s4">
+            <button style="width: 100%;" type="submit" [disabled]="!formUsuario.form.valid" class="waves-effect waves-teal btn-large">
+              Crear Cliente
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
