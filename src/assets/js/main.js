@@ -71,30 +71,31 @@ $(document).ready(function () {
         $("#containerL").slideToggle("slow");
     });*/
 
-    $('.alternar-panel-oculto').toggle( 
- 
+    $('.alternar-panel-oculto').toggle(
+
         /* 
             Primer click.
             Función que descubre un panel oculto
             y cambia el texto del botón.
         */
-        function(e){ 
+        function (e) {
             $('#containerL').slideDown();
             e.preventDefault();
         }, // Separamos las dos funciones con una coma
-     
+
         /* 
             Segundo click.
             Función que oculta el panel
             y vuelve a cambiar el texto del botón.
         */
-        function(e){ 
+        function (e) {
             $('#containerL').slideUp();
             e.preventDefault();
         }
- 
+
     );
 });
+
 (function ($) {
     $(window).load(function () {
         $(".NavLateral-content").mCustomScrollbar({

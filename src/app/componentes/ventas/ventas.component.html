@@ -3,9 +3,201 @@
 <app-nav-lateral></app-nav-lateral>
 <section class="ContentPage full-width">
   <app-nav-superior></app-nav-superior>
-  <div class="row">
-    <form class="col s12">
-      
+  <br>
+  <div class="row ">
+    <br>
+    <form #formExistCliente="ngForm" (ngSubmit)="onSubmit()" class="col s12">
+      <div class="row">
+        <div class="input-field col s1"></div>
+        <div class="input-field col s7">
+          <input id="first_name" type="text" #Identidad="ngModel" name="Identidad" class="validate" [(ngModel)]="cliente.docIdentidad"
+            autocomplete="off" required pattern="[0-9]+">
+          <label for="first_name">
+            Numero de identificacion del cliente &nbsp;
+            <span *ngIf="!Identidad.valid && Identidad.touched" style="color: rgb(211, 36, 43)"> DATO INCORRECTO </span>
+          </label>
+        </div>
+        <div class="col s3">
+          <button style="width: 100%;" type="submit" [disabled]="!formExistCliente.form.valid" class="waves-effect waves-teal btn-large">
+            Siguiente
+          </button>
+        </div>
+      </div>
     </form>
+    <div *ngIf="crear == '1' ">
+      <div class="row">
+        <div class="input-field col s4"></div>
+        <div class="col s4" style="text-align: center">
+          <h5>El cliente no existe </h5>
+          <a (click)="crearNew()" class="waves-effect waves-light btn-large">Crear un nuevo cliente</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="vender == '1' ">
+    <div class="row">
+      <div class="col s12">
+        <ul class="timeline">
+          <li>
+            <div class="timeline-panel">
+              <h4 class="center-align">Tabla De Productos</h4>
+              <hr>
+              <table class="highlight" [mfData]="data | dataFilter : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy"
+                [(mfSortOrder)]="sortOrder">
+                <thead>
+                  <tr>
+                    <th colspan="5">
+                      Buscar por nombre
+                      <input class="form-control" [(ngModel)]="filterQuery" />
+                    </th>
+                  </tr>
+                  <tr>
+                    <th style="width: 10%">
+                      <mfDefaultSorter>Codigo</mfDefaultSorter>
+                    </th>
+                    <th style="width: 40%">
+                      <mfDefaultSorter>Nombre</mfDefaultSorter>
+                    </th>
+                    <th style="width: 20%">
+                      <mfDefaultSorter>Disponibles</mfDefaultSorter>
+                    </th>
+                    <th style="width: 20%">
+                      <mfDefaultSorter>Precio</mfDefaultSorter>
+                    </th>
+                    <th style="width: 10%">
+                      <mfDefaultSorter>Añadir</mfDefaultSorter>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of mf.data">
+                    <td>{{item.codigo_prod}}</td>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.cant_dispon}}</td>
+                    <td>$ {{item.precio_venta}}</td>
+                    <td>
+                      <a class="btn-floating waves-effect waves-light blue " (click)="add(item)">
+                        <i class="zmdi zmdi-plus"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="4">
+                      <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-panel">
+              <ul class="timeline">
+                <li>
+                  <div class="timeline-panel col s6">
+                    <h5>Datos del cliente</h5>
+                    <p class="capitalize">
+                      <strong>Nombre: </strong> {{newCliente.nombre_pri}} {{newCliente.apellido_pri}}.
+                      <br>
+                      <strong>Cedula: </strong> {{newCliente.num_identidad}}.
+                      <br>
+                      <strong>Telefono: </strong> {{newCliente.telefono}}.
+                    </p>
+                  </div>
+                  <div class="timeline-panel col s6">
+                    <h5>Datos del vendedor</h5>
+                    <p class="capitalize">
+                      <strong>Nombre: </strong> {{usuario.nombre_pri}} {{usuario.apellido_pri}}.
+                      <br>
+                      <strong>Cedula: </strong> {{usuario.num_identidad}}.
+                      <br>
+                      <strong>Telefono: </strong> {{usuario.telefono}}.
+                    </p>
+                  </div>
+                  <div class="timeline-panel col s12">
+                    <div>
+                      <div style="text-align: center; color: rgb(211, 36, 43)" *ngIf="order.length == 0">
+                        <strong>NINGUN PRODUCTO AÑADIDO A ESTA VENTA</strong>
+                      </div>
+                      <ul>
+                        <li *ngFor="let item of order; let i = index">
+                          <div class="row">
+                            <div class="col s6">
+                              <span>
+                                <strong>{{item.item.codigo_prod}}</strong>
+                                &nbsp;
+                                <strong>-</strong>
+                                &nbsp;
+                                <strong>{{item.item.nombre}}</strong>
+                              </span>
+                            </div>
+                            <div class="col s6">
+                              <a class="btn-floating waves-effect waves-light" (click)="subtractItem(item, $index)">
+                                <i class="zmdi zmdi-minus"></i>
+                              </a>&nbsp;
+                              <a class="btn-floating waves-effect waves-light" (click)="addItem(item, i)">
+                                <i class="zmdi zmdi-plus"></i>
+                              </a>&nbsp;
+                              <a class="btn-floating waves-effect waves-light" (click)="deleteItem($index)">
+                                <i class="zmdi zmdi-delete"></i>
+                              </a>
+                              &nbsp; &nbsp;
+                              <strong>Cantidad: </strong>{{item.orderedItemCnt}}
+                              <strong>- Precio: </strong> $ {{item.totalPrice}}
+                            </div>
+                          </div>
+                          <hr>
+                        </li>
+                        <li>
+                          <div *ngIf="!order.length == 0">
+                            <div>
+                              <br>
+                              <strong>Total a Pagar: </strong>
+                              <strong style="color: rgb(211, 36, 43)"> ${{getSum()}}</strong>
+                              <br>
+                              <br>
+                              <hr>
+                            </div>
+                            <br>
+                            <div class="row">
+                              <div class="col s6">
+                                <h6>
+                                  <strong *ngIf="tipo_pago == 'contado' || tipo_pago == ''">Forma de pago: {{tipo_pago}}</strong>
+                                  <strong *ngIf="tipo_pago == 'credito'">Forma de pago: {{tipo_pago}} a {{dia}} Dias</strong>
+                                </h6>
+                              </div>
+                              <div class="col s6">
+                                <a class="waves-effect waves-light btn-large" (click)="tipoPagoContado()">Contado</a> &nbsp; &nbsp;
+                                <a class='dropdown-trigger btn-large' (click)="tipoPagoCredito()" data-target='dropdown1'>Credito</a>&nbsp; &nbsp;
+                                <a (click)="treintaDias()" *ngIf="seleccionarDias" class="btn-floating waves-effect waves-light">&nbsp;&nbsp;30</a>&nbsp;
+                                <a (click)="sesentaDias()" *ngIf="seleccionarDias" class="btn-floating waves-effect waves-light">&nbsp;&nbsp;60</a>&nbsp;
+                                <a (click)="noventaDias()" *ngIf="seleccionarDias" class="btn-floating waves-effect waves-light">&nbsp;&nbsp;90</a>
+                                <br>
+                                <br>
+                              </div>
+                              <hr>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul *ngIf="!order.length == 0">
+                        <li class="row">
+                          <div class="col s12" style="text-align: center">
+                            <button (click)="checkout()" [disabled]="tipo_pago == '' " type="submit" class="waves-effect waves-light btn-large">Realizar venta</button>
+                            <!-- <button (click)="prueba()" type="submit" class="waves-effect waves-light btn-large">prueba</button> -->
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>

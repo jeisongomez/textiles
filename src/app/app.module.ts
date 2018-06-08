@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {DataTableModule} from "angular-6-datatable";
 
 import { AppComponent } from './app.component';
 import { NavLateralComponent } from './componentes/nav-lateral/nav-lateral.component';
@@ -14,6 +15,7 @@ import { TecladoComponent } from './componentes/teclado/teclado.component';
 import { VentasComponent } from './componentes/ventas/ventas.component';
 import { ComprasComponent } from './componentes/compras/compras.component';
 import { ClientesComponent } from './componentes/clientes/clientes.component';
+import { DataFilterPipe } from './pipes/data-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,15 @@ import { ClientesComponent } from './componentes/clientes/clientes.component';
     TecladoComponent,
     VentasComponent,
     ComprasComponent,
-    ClientesComponent
+    ClientesComponent,
+    DataFilterPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DataTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
