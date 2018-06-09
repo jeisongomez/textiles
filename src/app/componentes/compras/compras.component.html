@@ -1,3 +1,109 @@
-<p>
-  compras works!
-</p>
+<app-nav-lateral></app-nav-lateral>
+<section class="ContentPage full-width">
+  <app-nav-superior></app-nav-superior>
+  <div class="container">
+    <div class="row">
+      <h3 class="center-align">Registrar Compra Producto</h3>
+
+      <form class="col s12" #formCompras="ngForm" (ngSubmit)="addProducto(); formCompras.reset();">
+        <div class="row">
+
+          <div class="input-field col s6">
+            <i class="zmdi zmdi-border-color prefix"></i>
+            <input type="text" class="validate" #codigo_prod="ngModel" name="codigo_prod" [(ngModel)]="codigo">
+            <label for="codprod">Codigo del producto</label>
+          </div>
+
+          <div class="input-field col s6">
+            <i class="zmdi zmdi-accounts-alt prefix"></i>
+            <input id="idprov" type="text" class="validate" #idproveedor="ngModel" name="idproveedor" [(ngModel)]="proveedorC">
+            <label for="idprov">Id proveedor</label>
+            <a (click)="newProveedor = true" class="btn-floating btn-little waves-effect waves-light green" style="position: relative; bottom: 60px; left: 100%;">
+              <i class="zmdi zmdi-plus-circle"></i>
+            </a>
+          </div>
+
+          <div class="input-field col s6">
+            <i class="zmdi zmdi-case prefix"></i>
+            <input id="icon_prefix" type="text" class="validate" #nombrep="ngModel" name="nombrep" [(ngModel)]="nombre">
+            <label for="icon_prefix">Nombre</label>
+          </div>
+
+          <div class="input-field col s6">
+            <i class="zmdi zmdi-twitch prefix"></i>
+            <input id="Apellido" type="text" class="validate" #present="ngModel" name="present" [(ngModel)]="presentacion">
+            <label for="Apellido">Presentacion</label>
+          </div>
+
+          <div class="input-field col s6">
+            <i class="zmdi zmdi-plus-1 prefix"></i>
+            <input id="icon_direccion" type="text" class="validate" #cant="ngModel" name="cant" [(ngModel)]="cantidad">
+            <label for="icon_direccion">Cantidad disponible</label>
+          </div>
+
+          <div class="input-field col s6">
+            <i class="zmdi zmdi-money-box prefix"></i>
+            <input id="icon_telephone" type="tel" class="validate" #price="ngModel" name="price" [(ngModel)]="precio">
+            <label for="icon_telephone">Precio</label>
+          </div>
+
+        </div>
+        <div class="center-align">
+          <button type="submit" class="waves-effect waves-light btn-large">
+            <i class="zmdi zmdi-mail-send right"></i>Registrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <br>
+  <br>
+
+
+  <div *ngIf="newProveedor == true">
+    <!--Input fields-->
+    <div class="container">
+      <div class="row">
+        <h4 class="center-align">Registrar Proveedor</h4>
+        <form class="col s12">
+
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="first_name" type="text" class="validate" #nombrePv="ngModel" name="nombrePv" [(ngModel)]="nombreProv">
+              <label for="first_name">Nombre</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="last_name" type="text" class="validate" #apellidoPv="ngModel" name="apellidoPv" [(ngModel)]="apellidoProv">
+              <label for="last_name">Apellido</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="nit" type="text" class="validate" #nit="ngModel" name="nit" [(ngModel)]="prov.idproveedores">
+              <label for="nit">Nit/Cedula</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="tel" type="text" class="validate" #telPv="ngModel" name="telPv" [(ngModel)]="prov.telefono">
+              <label for="tel">Telefono</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="email" type="email" class="validate" #emailPv="ngModel" name="emailPv" [(ngModel)]="prov.correo">
+              <label for="email">Email</label>
+            </div>
+          </div>
+          <div class="center-align">
+            <button (click)="addProveedor()" class="waves-effect waves-light btn-large">
+              <i class="zmdi zmdi-mail-send right"></i>Registrar</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

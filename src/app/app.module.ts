@@ -17,6 +17,7 @@ import { ComprasComponent } from './componentes/compras/compras.component';
 import { ClientesComponent } from './componentes/clientes/clientes.component';
 import { DataFilterPipe } from './pipes/data-filter.pipe';
 import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
+import { ReportesComponent } from './componentes/reportes/reportes.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
     ComprasComponent,
     ClientesComponent,
     DataFilterPipe,
-    UsuariosComponent
+    UsuariosComponent,
+    ReportesComponent
   ],
   imports: [
     BrowserModule,

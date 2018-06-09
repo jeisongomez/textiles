@@ -32,34 +32,17 @@
                 </li>
                 <li *ngIf="compras == '1'" class="NavLateralDivider"></li>
                 <li *ngIf="compras == '1'">
-                    <a class="NavLateral-DropDown  waves-effect waves-light">
+                    <a [routerLink]="['/compras']" class="NavLateral-DropDown  waves-effect waves-light">
                         <i class="zmdi zmdi-shopping-cart zmdi-hc-fw"></i>
                         Compras
                     </a>
                 </li>
                 <li *ngIf="reportes == '1'" class="NavLateralDivider"></li>
                 <li *ngIf="reportes == '1'">
-                    <a class="NavLateral-DropDown  waves-effect waves-light">
+                    <a [routerLink]="['/reportes']" class="NavLateral-DropDown  waves-effect waves-light">
                         <i class="zmdi zmdi-collection-text zmdi-hc-fw"></i>
-                        <i class="zmdi zmdi-chevron-down NavLateral-CaretDown"></i>
                         Reportes
                     </a>
-                    <ul class="full-width">
-                        <li>
-                            <a class="waves-effect waves-light"> Consultar Dinero Ganado </a>
-                        </li>
-                        <li class="NavLateralDivider"></li>
-                        <li>
-                            <a class="waves-effect waves-light"> Consultar Top 10 Vendidos </a>
-                        </li>
-                        <li class="NavLateralDivider"></li>
-                        <li>
-                            <a class="waves-effect waves-light"> Consultar Top 10 Utilidad</a>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-light"> Consultar Producto menos vendido</a>
-                        </li>
-                    </ul>
                 </li>
             </ul>
         </div>

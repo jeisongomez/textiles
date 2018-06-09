@@ -9,6 +9,8 @@ import { NavSuperiorComponent } from './componentes/nav-superior/nav-superior.co
 import { VentasComponent } from './componentes/ventas/ventas.component';
 import { ClientesComponent } from './componentes/clientes/clientes.component';
 import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
+import { ComprasComponent } from './componentes/compras/compras.component';
+import { ReportesComponent } from './componentes/reportes/reportes.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'ventas', component: VentasComponent },
   { path: 'addCliente', component: ClientesComponent },
   { path: 'addUsuario', component: UsuariosComponent },
+  { path: 'compras', component: ComprasComponent },
+  { path: 'reportes', component: ReportesComponent},
   { path: '**', component: ErrorComponent }
 ];
 

@@ -1,0 +1,91 @@
+<app-nav-lateral></app-nav-lateral>
+<section class="ContentPage full-width">
+  <app-nav-superior></app-nav-superior>
+  <div class="container">
+    <div class="row">
+      <h3 class="center-align">Reportes</h3>
+
+      <br>
+      <br>
+
+
+      <div>
+        <h5>Dinero ganado en:</h5>
+
+        <div class="center-align">
+          <label for="fechaiMoney">Fecha inicio:</label>
+          <input id="fechaiMoney" type="date" name="fechaiDinero" style="width: 20%;" [(ngModel)]="ganado.fechaInicio">
+
+          <label for="fechafMoney">Fecha fin:</label>
+          <input id="fechafMoney" type="date" name="fechafDinero" style="width: 20%;" [(ngModel)]="ganado.fechaFin">
+
+          <br>
+          <button (click)="reporteDineroG()" class="waves-effect waves-light btn-large">
+            <i class="zmdi zmdi-mail-send right"></i>Ver Reporte</button>
+
+          <p>El dinero ganado en el rango de fecha indicado es de: <strong style="color: rgb(211, 36, 43)" >${{dineroGanado}}</strong></p>
+        </div>
+      </div>
+      <hr>
+
+
+      <div>
+        <h5>Top 10 de los productos más vendidos:</h5>
+        <div class="center-align">
+          <label for="fechaiTopv">Fecha inicio:</label>
+          <input id="fechaiTopv" type="date" name="fechaiTopv" style="width: 20%;" [(ngModel)]="fechaInicioMas">
+
+          <label for="fechafTopv">Fecha fin:</label>
+          <input id="fechafTopv" type="date" name="fechafTopv" style="width: 20%;" [(ngModel)]="fechaFinMas">
+
+          <br>
+          <button class="waves-effect waves-light btn-large">
+            <i class="zmdi zmdi-mail-send right"></i>Ver Reporte</button>
+
+          <ul>
+            <li>
+              <p>#1 - </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+
+
+      <div>
+        <h5>Top 10 de los productos con más utilidad:</h5>
+        <div class="center-align">
+          <br>
+          <button class="waves-effect waves-light btn-large">
+            <i class="zmdi zmdi-mail-send right"></i>Ver Reporte</button>
+
+          <ul>
+            <li>
+              <p>#1 - </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+
+
+      <div>
+        <h5>El producto menos vendido:</h5>
+        <div class="center-align">
+          <label for="fechaiMv">Fecha inicio:</label>
+          <input id="fechaiMv" type="date" name="fechaiMenosv" style="width: 20%;" [(ngModel)]="fechaInicioMenos">
+
+          <label for="fechafMv">Fecha fin:</label>
+          <input id="fechafMv" type="date" name="fechafMenosv" style="width: 20%;" [(ngModel)]="fechaFinMenos">
+
+          <br>
+          <button class="waves-effect waves-light btn-large">
+            <i class="zmdi zmdi-mail-send right"></i>Ver Reporte</button>
+
+          <p>El producto menos vendido es: * </p>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </div>
+</section>
